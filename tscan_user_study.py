@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 from turtle import color
 import random
+import time
 
 # Define all the functions
 
@@ -12,13 +13,20 @@ def find_center_rect(x1, x2, y1, y2):
     return x1 + (x2 - x1) // 2, y1 + (y2 - y1) // 2 + 50
 
 def on_key_press(event):
-    global i, txt2, tw2
+    global i, txt2, tw2, start_time, end_time, elapsed_time
+    
+    # Stop the stopwatch
+    end_time = time.time()
+    # Calculate elapsed time
+    elapsed_time = end_time - start_time
+
     if i<12:
-        print(f"i: {i} - key pressed: {event.char}")
+        print(f"i: {i} - letter: {random_letters[i]} - key pressed: {event.char} - elapsed time: {elapsed_time} seconds")
     i = i + 1
     if i<12: # iteration 2-12
         c.delete(tw2)
         txt2 = random_letters[i]
+        start_time = time.time()
         tw2 = c.create_text(700-25, 70, text=txt2, font=("Courier", 50) ,fill="white")
     else: # finish
         print("Finish")
@@ -95,9 +103,11 @@ tnz = c.create_text(x, y, text="Neutral Zone", font=("Courier", 30), fill="white
 txt="Find the following letter:"
 tw = c.create_text(700-25, 20, text=txt, font=("Courier", 30), fill="white")
 
-# iteration 1
+# Iteration 1
 i = 0 
 txt2 = random_letters[i]
+# Start the stopwatch
+start_time = time.time()
 tw2 = c.create_text(700-25, 70, text=txt2, font=("Courier", 50), fill="white")
 
 # Call the key press listener
