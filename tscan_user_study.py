@@ -24,10 +24,11 @@ def on_key_press(event):
         print(f"i: {i} - letter: {random_letters[i]} - key pressed: {event.char} - elapsed time: {elapsed_time} seconds")
     i = i + 1
     if i<12: # iteration 2-12
-        c.delete(tw2)
+        # c.delete(tw2)
         txt2 = random_letters[i]
         start_time = time.time()
-        tw2 = c.create_text(700-25, 70, text=txt2, font=("Courier", 50) ,fill="white")
+        # tw2 = c.create_text(700-25, 70, text=txt2, font=("Courier", 50) ,fill="white")
+        c.itemconfig(tw2, text=txt2)
     else: # finish
         print("Finish")
         c.delete(tw)
@@ -46,6 +47,7 @@ random_letters_Q4 = random.sample(Q4, 3)
 random_letters = [item for sublist in [random_letters_Q1, random_letters_Q2, random_letters_Q3, random_letters_Q4] for item in sublist]
 random.shuffle(random_letters)
 print(random_letters)
+# Note: 4 huruf pertama ambil dari 4 quarter berbeda, sisanya bebas urutannya
 
 # GUI
 master=tk.Tk()
@@ -72,20 +74,20 @@ t1 = c.create_text(x, y, text="A, B, C, D, E, F", font=("Courier", 30), fill="bl
 t1_cmd = c.create_text(w + 70, h + 20, text="Press '1'", font=("Courier", 20), fill="red")
 
 ### Q2 ###
-w  = 700 - 175 - 500
-h = 800 - 25 - 300 - 15
-r2 = c.create_rectangle(w, h, w + 500, h + 275, fill="#b5b4b1")
-x, y = find_center(w, h, 500, 275)
-t2 = c.create_text(x, y, text="G, H, I, J, K, L", font=("Courier", 30), fill="black")
-t2_cmd = c.create_text(w + 70, h + 20, text="Press '2'", font=("Courier", 20), fill="red")
-
-### Q3 ###
 w  = 700 + 150
 h = 75 + 25
 r3 = c.create_rectangle(w, h, w + 500, h + 275, fill="#b5b4b1")
 x, y = find_center(w, h, 500, 275)
-t3 = c.create_text(x, y, text="M, N, O, P, Q, R", font=("Courier", 30), fill="black")
-t3_cmd = c.create_text(w + 70, h + 20, text="Press '3'", font=("Courier", 20), fill="red")
+t3 = c.create_text(x, y, text="G, H, I, J, K, L", font=("Courier", 30), fill="black")
+t3_cmd = c.create_text(w + 70, h + 20, text="Press '2'", font=("Courier", 20), fill="red")
+
+### Q3 ###
+w  = 700 - 175 - 500
+h = 800 - 25 - 300 - 15
+r2 = c.create_rectangle(w, h, w + 500, h + 275, fill="#b5b4b1")
+x, y = find_center(w, h, 500, 275)
+t2 = c.create_text(x, y, text="M, N, O, P, Q, R", font=("Courier", 30), fill="black")
+t2_cmd = c.create_text(w + 70, h + 20, text="Press '3'", font=("Courier", 20), fill="red")
 
 ### Q4 ###
 w  = 700 + 150 
