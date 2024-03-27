@@ -44,10 +44,18 @@ random_letters_Q1 = random.sample(Q1, 3)
 random_letters_Q2 = random.sample(Q2, 3)
 random_letters_Q3 = random.sample(Q3, 3)
 random_letters_Q4 = random.sample(Q4, 3)
-random_letters = [item for sublist in [random_letters_Q1, random_letters_Q2, random_letters_Q3, random_letters_Q4] for item in sublist]
-random.shuffle(random_letters)
+# random_letters = [item for sublist in [random_letters_Q1, random_letters_Q2, random_letters_Q3, random_letters_Q4] for item in sublist]
+# random.shuffle(random_letters)
+# print(random_letters)
+# Modified - The first 4 letters will be taken from different quarters, the rest order will be free
+random_letters_group1 = [random_letters_Q1[0],random_letters_Q2[0],random_letters_Q3[0],random_letters_Q4[0]]
+random.shuffle(random_letters_group1)
+# print(random_letters_group1)
+random_letters_group2 = [random_letters_Q1[1],random_letters_Q2[1],random_letters_Q3[1],random_letters_Q4[1],random_letters_Q1[2],random_letters_Q2[2],random_letters_Q3[2],random_letters_Q4[2]]
+random.shuffle(random_letters_group2)
+# print(random_letters_group2)
+random_letters = random_letters_group1 + random_letters_group2
 print(random_letters)
-# Note: 4 huruf pertama ambil dari 4 quarter berbeda, sisanya bebas urutannya
 
 # GUI
 master=tk.Tk()
