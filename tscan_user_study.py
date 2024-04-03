@@ -5,6 +5,10 @@ from tkinter.ttk import *
 from turtle import color, onclick
 import random
 import time
+import os
+import pandas as pd
+import openpyxl as xl
+from openpyxl import Workbook
 
 # Define all the functions
 
@@ -57,7 +61,7 @@ def make_button_inv():
     master.bind("<KeyPress>", on_key_press)
 
 def on_key_press(event):
-    global i, txt, tw, txt2, tw2, start_time, end_time, elapsed_time, test_button, button_visible
+    global i, txt, tw, txt2, tw2, start_time, end_time, elapsed_time, test_button, button_visible, result
     if button_visible == False:
         # Stop the stopwatch
         end_time = time.time()
@@ -66,8 +70,38 @@ def on_key_press(event):
         if i<12:
             correctness = check_correctness(random_letters[i], event.char)
             print(f"i: {i} - letter: {random_letters[i]} - key pressed: {event.char} - elapsed time: {elapsed_time} - correctness: {correctness}")
-            # test_button.place(x=700 - 175 - 500, y=20)
+            result.append(i)
+            result.append(random_letters[i])
+            result.append(event.char)
+            result.append(elapsed_time)
+            result.append(correctness)
+
+            # Save the experiment data to Excel
+            # Convert the list to a DataFrame
+            df = pd.DataFrame([result])
+            # Define the Excel file name
+            file_name = "data.xlsx"
+
+            # Check if the file not exists
+            if os.path.isfile(file_name)==False:
+                # Create a new Excel file
+                wb = Workbook()
+                ws = wb.active
+                ws.title = "Sheet1"
+                # Save the new Excel file
+                wb.save(filename=file_name)
+
+            # Get number of rows in excel file (to determine where to append)
+            source_file = xl.load_workbook("data.xlsx", enumerate)
+            sheet = source_file["Sheet1"]
+            row_count = sheet.max_row
+            source_file.close()
+            with pd.ExcelWriter("data.xlsx", mode='a', if_sheet_exists='overlay') as writer:  
+                df.to_excel(writer, sheet_name='Sheet1', index=False, header=False, startrow = row_count)
+
+            result = []
             test_button.place(x=650, y=70)
+
             if i==11: # finish
                 print("Finish")
                 c.delete(tw)
@@ -166,6 +200,7 @@ tw = c.create_text(700-25, 20, text=txt, font=("Courier", 30), fill="white")
 
 # Iteration 1
 i = 0
+result = []
 
 master.configure(background='black')
 master.mainloop()
