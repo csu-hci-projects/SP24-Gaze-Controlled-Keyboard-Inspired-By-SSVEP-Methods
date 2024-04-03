@@ -41,4 +41,5 @@ In-person meetings:
 - February 1, 2024: Discussed the idea for the project.
 - February 27, 2024: Discussed the prototype and job descriptions for each member.
 - March 19, 2024: Discussed the progress of the project and the future distribution of work.
+- April 1, 2024: Discussed the experiment for the user study.
 At least once a week, we have a discussion via instant messenger (WhatsApp).
