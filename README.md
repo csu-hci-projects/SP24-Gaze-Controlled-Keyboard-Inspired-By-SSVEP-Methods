@@ -14,20 +14,24 @@ https://youtu.be/F_Db3on5mkw
 https://youtu.be/ue8FoTJ8rrY
 
 What each member has done thus far:
+
 Brian Tan:
 - Code the initial GUI for the Tscan experiment
 - Code the prototype for eye-tracking
 - Write the paper, in charge of the introduction and related works part
+
 Septia Rani:
 - Code the functionality for the Tscan experiment
 - Make the video for the progress report
 - Write the paper, in charge of the methodology part
 
 The future distribution of work:
+
 Brian Tan:
 - Complete the code of the Gaze Controlled Keyboard prototype
 - Conducting the user study and usability evaluation
 - Complete the paper writing
+
 Septia Rani:
 - Add machine learning to enhance the Gaze Controlled Keyboard prototype
 - Conducting the user study and usability evaluation
