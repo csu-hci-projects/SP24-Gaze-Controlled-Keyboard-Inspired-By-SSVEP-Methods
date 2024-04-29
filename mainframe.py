@@ -157,7 +157,7 @@ x, y = find_center_rect(700-175, 700+150, 275,  800 - 25 - 300 - 15)
 
 cur_i = 1
 cur_j = 1
-instruction = calibration_canvas.create_text(x, y+100, text="Stare at visible box for 10 seconds", font=("Courier", 30) ,fill="white")
+instruction = calibration_canvas.create_text(x, y+100, text="Stare at visible box for 5 seconds", font=("Courier", 30) ,fill="white")
 
 def start_cal(event):
     global cur_i, instruction, tcc, cur_j, tcc_rec, calibration_canvas, data, predict_func, kmeans
