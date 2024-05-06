@@ -25,7 +25,8 @@ https://github.com/csu-hci-projects/SP24-Gaze-Controlled-Keyboard-Inspired-By-SS
 4. To run the main prototype, type the following command on the terminal: 
 >> python mainframe.py 
 
-Follow the instructions on the screen.
+Follow the instructions on the screen. 
+
 5. To run the Tscan user study, type the following command on the terminal:
 >> python tscan_user_study.py 
 
