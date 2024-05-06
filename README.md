@@ -23,8 +23,10 @@ https://github.com/csu-hci-projects/SP24-Gaze-Controlled-Keyboard-Inspired-By-SS
 2. Open the terminal/command prompt on your computer.
 3. On the terminal, change the active directory to the directory of the project.
 4. To run the main prototype, type the following command on the terminal: 
->> python mainframe.py
+>> python mainframe.py 
+
 Follow the instructions on the screen.
 5. To run the Tscan user study, type the following command on the terminal:
->> python tscan_user_study.py
+>> python tscan_user_study.py 
+
 Follow the instructions on the screen. At the end of the experiment, it will create an Excel file containing the recorded data from the experiments.
